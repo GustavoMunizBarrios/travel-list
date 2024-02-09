@@ -14,11 +14,17 @@ export default function App() {
     setItems((items) => [...items, item]);
   }
 
+  function handleDeleteItem(id) {
+    //.filter creates a new array with the elements that meet the condition "item.id !== id"
+    //In other words exclude the object with the id of the parameter
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
   return (
     <div className="app">
       <Logo />
       <Form onAddItems={handleAddItems} />
-      <PackingList items={items} />
+      <PackingList items={items} onDeleteItem={handleDeleteItem} />
       <Stats />
     </div>
   );
@@ -71,12 +77,12 @@ function Form({ onAddItems }) {
   );
 }
 
-function PackingList({ items }) {
+function PackingList({ items, onDeleteItem }) {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item i={item} key={item.id} />
+          <Item i={item} onDeleteItem={onDeleteItem} key={item.id} />
           //<li>{item.description}</li>
         ))}
       </ul>
@@ -84,13 +90,13 @@ function PackingList({ items }) {
   );
 }
 
-function Item({ i }) {
+function Item({ i, onDeleteItem }) {
   return (
     <li>
       <span style={i.packed ? { textDecoration: "line-through" } : {}}>
         {i.quantity} {i.description}
       </span>
-      <button onClick={() => alert("Eliminate Item?")}>✖</button>
+      <button onClick={() => onDeleteItem(i.id)}>✖</button>
     </li>
   );
 }
