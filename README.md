@@ -1,4 +1,4 @@
-# Travel List App
+# Packing List App
 
 Travel List is a perfect application for those trips where you can't forget anything.
 
