@@ -2,6 +2,7 @@ export default function Item({ i, onDeleteItem, onToggleItems }) {
   return (
     <li>
       <input
+        /* style={{ borderRadius: 50 + "%" }} */
         type="checkbox"
         value={i.packed}
         onChange={() => {
