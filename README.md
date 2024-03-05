@@ -7,4 +7,4 @@ It records the amount and items you need, you can mark them as packed or delete 
 You can also sort them by description or status.
 At the bottom you can see how many items you have left to pack.
 
-![Screenshot](./src/images/travel-list_pc_compress.jpeg)
+![Screenshot](./src/images/travel-list-desktop02-compress.jpeg)
